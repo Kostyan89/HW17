@@ -27,15 +27,40 @@ class Movie(db.Model):
     director = db.relationship("Director")
 
 
+class MovieSchema(Schema):
+    id = fields.Int(dump_only=True)
+    title = Str()
+    description = Str()
+    trailer = Str()
+    year = Int()
+    rating = Float()
+    genre_id = Int()
+    genre = Str()
+    director_id =Int()
+    director = Str()
+
+
 class Director(db.Model):
     __tablename__ = 'director'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
 
+
+class DirectorSchema(Schema):
+    id = fields.Int()
+    name = fields.Str()
+
+
 class Genre(db.Model):
     __tablename__ = 'genre'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
+
+
+class GenreSchema(Schema):
+    id = fields.Int()
+    name = fields.Str()
+
 
 db.drop_all()
 db.create_all()
