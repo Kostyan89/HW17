@@ -9,6 +9,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
+api = Api(app)
+movies_ns = api.namespace('movies')
+
 
 
 
