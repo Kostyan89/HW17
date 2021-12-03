@@ -34,6 +34,18 @@ class Genre(db.Model):
     name = db.Column(db.String(255))
 
 
+class MovieSchema(Schema):
+    id = fields.Int(dump_only=True)
+    title = Str()
+    description = Str()
+    trailer = Str()
+    year = Int()
+    rating = Str()
+    genre_id = Str()
+    genre = Str()
+    director_id =Str()
+    director = Str()
+
 
 if __name__ == '__main__':
     app.run(debug=True)
