@@ -40,6 +40,9 @@ class MovieSchema(Schema):
     director = Str()
 
 
+movie_schema = MovieSchema()
+movies_schema = MovieSchema(many=True)
+
 class Director(db.Model):
     __tablename__ = 'director'
     id = db.Column(db.Integer, primary_key=True)
@@ -49,6 +52,10 @@ class Director(db.Model):
 class DirectorSchema(Schema):
     id = fields.Int()
     name = fields.Str()
+
+
+director_schema = DirectorSchema()
+directors_schema = DirectorSchema(many=True)
 
 
 class Genre(db.Model):
@@ -61,6 +68,9 @@ class GenreSchema(Schema):
     id = fields.Int()
     name = fields.Str()
 
+
+genre_schema = GenreSchema()
+genres_schema = GenreSchema(many=True)
 
 db.drop_all()
 db.create_all()
